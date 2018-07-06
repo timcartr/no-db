@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express= require('express');
 const bodyParser = require('body-parser');
 
@@ -11,7 +12,7 @@ app.use(bodyParser.json())
 //app.get('/api/users, (req, res) => {})
 
 // === Endpoints ======
-const PORT = 3005;
-app.listen( PORT, () => {
-    console.log(`Listening to port: ${PORT}`)
+let { SERVER_PORT } = process.env;
+app.listen( SERVER_PORT, () => {
+    console.log(`Listening to port: ${ SERVER_PORT }`)
 })
