@@ -1,16 +1,19 @@
 import React from 'react'
 
-import './Nav.css'
-
 export default function Nav() {
     
     return(
-        <div>
-           <p>Logo</p>
+        <div className="header">
+            <a className="logo">Game<span>Check</span></a>
             <nav>
                 <a href={''}>My Lists</a>
-                <button> Login </button>
+                <a href={''}>About</a>
+                <a href={''}>Contact</a>
             </nav>
+            <div className="membership">
+                <a href={''}><span className="signup">Sign Up</span></a>
+                <a href={''}><span className="login">Login</span></a>
+            </div>
         </div>
     )
 

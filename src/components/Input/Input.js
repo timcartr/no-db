@@ -22,7 +22,7 @@ export default class Input extends Component {
     }
     
     createList( listInfo, listName ) {
-    axios.post('/api/savedLists', {games:listInfo,listName:listName} )
+    axios.post(`/api/savedLists?listName=${listName}`, {games:listInfo})
     }
 
     // deletePost( id ) {
@@ -81,8 +81,25 @@ export default class Input extends Component {
     }
 
     render() {  
+        console.log(this.state.savedList)
         return(
             <div className='Input'>
+                <div className="overflow">
+                    <div id='inputBoxDiv'>
+                        <img src="https://www.zeldadungeon.net/wp-content/uploads/2014/06/Breath-of-the-Wild-Walkthrough.jpg" alt="" className="headerImg"/>
+                    </div>
+                </div>
+                <div className="flexdiv">
+                    <div class="inputBox">
+                        <h1 >What's your favorite game?</h1>
+                        <div>
+                            <input onChange={ (e) => this.handleChange( e.target.value)}
+                                value={this.state.userInput} placeholder={"Is it Zelda?"}/>
+                            <br/>
+                            <button onClick={ () => {this.handleClick()} }>Go</button>
+                        </div>
+                    </div>
+                </div>
                 <ListView gameList = { this.state.gameList }
                             name = { this.state.searchQuery }
                             savedList = { this.state.savedList } 
@@ -92,19 +109,11 @@ export default class Input extends Component {
                             gameListVis = {this.state.gameListVis }
                             searchQueryArr = { this.state.searchQueryArr }
                             />
-                <div id='inputBoxDiv'>
-                    <h1 >What's your favorite game?</h1>
-                    <div>
-                        <input onChange={ (e) => this.handleChange( e.target.value)}
-                            value={this.state.userInput}/>
-                        <button onClick={ () => {this.handleClick()} }>Search</button>
-                </div>
-                    <br />
-                    {/* <ListPortal savedList = { this.state.savedList }/> */}
-                    { this.state.savedList.map( list => (
-                        <SavedLists lists = { list } key="list" />
-                    )) }
-                </div>
+                <br />
+                {/* <ListPortal savedList = { this.state.savedList }/> */}
+                { this.state.savedList.map( list => (
+                    <SavedLists lists = { list } key="list" />
+                )) }
             </div>
         )
     }

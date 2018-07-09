@@ -31,15 +31,17 @@ export default class Checkbox extends Component  {
     render() {
         return(
             <div>
-                    <input 
+                <div className="container">
+                    <input
                         type={"checkbox"} 
                         id={this.props.name} 
                         name={this.props.name} 
                         value={this.props.name} 
                         onClick={ () => { this.handleClick() } }
                     />
-                    <br/>{ this.props.name }
-                    <br/>{ this.props.summary }
+                </div>
+                    <br/><h3>{ this.props.name }</h3>
+                    <br/><p>{ this.props.summary }</p>
                     <br/>{ this.convertToHuman(this.props.firstReleaseDate) }
                     <Rating checked = { this.state.checked }/>
             </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import './GameList.css'
+import Game from './Game/Game.js'
 
 export default class GameList extends Component  {
     constructor() {
@@ -28,19 +29,18 @@ export default class GameList extends Component  {
             }
             if (obj.summary !== undefined){
                 return(
-                    <div key={i}>
-                        <h2>{ e.name }</h2>
-                        <p>{ e.summary }</p>
-                        <p>First released on: { this.convertToHuman(e.first_release_date) }</p>
-                    </div>
+                        <Game name = { e.name }
+                              summary = { e.summary }
+                              release = { e.first_release_date }
+                              convertToHumanFn = { this.convertToHuman }
+                              img = { e.cover }
+                        />
                 )
             }
         })
 
         return (
-            <div>
-                {mappedGames}
-            </div>
+                mappedGames
         )
     }
 }

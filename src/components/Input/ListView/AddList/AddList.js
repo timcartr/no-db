@@ -25,9 +25,9 @@ export default class AddList extends Component {
     render() {
         if( this.props.gameList.length !== 0){
             return(
-                <div>
-                    <button onClick={ () => { this.handleClick() } }>Save It!</button>
-                    <button onClick={ () => { this.handleClear() } }>Clear</button>
+                <div className="gamelist">
+                    <button onClick={ () => { this.handleClick() } } >Save It!</button>
+                    <button onClick={ () => { this.handleClear() } } >Clear</button>
                 </div>
             )
         }

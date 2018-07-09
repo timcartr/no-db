@@ -4,22 +4,7 @@ import Checkbox from '../ListView/GameList/Checkbox/Checkbox.js'
 import './SavedLists.css'
 
 export default function SavedLists(props) {
-    let mappedGames = props.lists.games.map( (e, i) => {
-        let obj = {
-            name:e.name,
-            summary:e.summary,
-            FirstReleased: e.first_release_date
-        }
-        if (obj.summary !== undefined){
-            return(
-                <div key={i}>
-                    <Checkbox name = { e.name }
-                            summary = { e.summary }
-                            firstReleaseDate = { e.first_release_date }/>
-                </div>
-            )
-        }
-    })
+    console.log(props.lists)
 
     let mappedYears = []
     props.lists.games.map( (e, i) => {
@@ -47,10 +32,27 @@ export default function SavedLists(props) {
 
     let coverImgUrlBig = coverImgUrl['url'].replace('t_thumb', 't_cover_big')
 
+    let mappedGames = props.lists.games.map( (e, i) => {
+        let obj = {
+            name:e.name,
+            summary:e.summary,
+            FirstReleased: e.first_release_date
+        }
+        if (obj.summary !== undefined){
+            return(
+                <div key={i} className="savedgamelist">
+                    <Checkbox name = { e.name }
+                            summary = { e.summary }
+                            firstReleaseDate = { e.first_release_date }/>
+                </div>
+            )
+        }
+    })
+
     return(
-        <div>
-            <img src={ coverImgUrlBig } />
-            <h2>{ props.lists.listName[0] }</h2>
+        <div className="savedgameheader">
+            <img src={ coverImgUrlBig } alt=""/>
+            <h2>{ props.lists.name }</h2>
             <p> First released on { releaseDate }</p>
             <p> Number of games: { countedGames }</p>
             { mappedGames }

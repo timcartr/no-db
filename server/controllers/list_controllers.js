@@ -20,8 +20,11 @@ module.exports = {
     },
     create:(req, res)=>{
         // Optionally check for required properties on the body object
-        console.log( "Games Array")
-        lists.push(req.body);
+        let newList = {
+            games: req.body.games,
+            name: req.query.listName
+        }
+        lists.push(newList)
         return res.status(200).send('New List Added')
     },
     delete:(req, res)=>{

@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 
 app.get('/search/:userInput', listCtrl.getGames)
 app.get('/api/savedLists', listCtrl.getList)
-app.post('/api/savedLists', listCtrl.create)
+app.post('/api/savedLists/', listCtrl.create)
 app.delete('/api/savedLists/:id', listCtrl.delete)
 
 

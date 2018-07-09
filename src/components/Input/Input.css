@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,400i,500,600,700,800,900|Roboto');
+
+:root {
+    --header: 50px;
+}
+
+#inputBoxDiv {
+    width:100%;
+    height:calc(100vh - var(--header));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    /* background-image: url("https://www.zeldadungeon.net/wp-content/uploads/2014/06/Breath-of-the-Wild-Walkthrough.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color:rgb(55, 55, 55);
+    position: absolute;
+    z-index: -1;
+    margin:-5px -10px;
+}
+
+img {
+    height:100vh;
+    filter: brightness(50%) blur(5px);
+
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.flexdiv {
+    width:100%;
+    height:calc(100vh - var(--header));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;    
+    overflow: hidden;
+}
+
+h1 {
+    font-size:60px;
+    color:rgb(255, 255, 255);
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    padding:20px;
+}
+
+button {
+    background-color:rgb(227, 34, 0);
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+    padding:5px 40px;
+    border-radius: 5px;
+}
+
+input {
+    border: none;
+    width: 25%;
+    height: 20px;
+    padding:5px 10px;
+    font-size:16px;
+}

@@ -9,7 +9,9 @@ export default function ListView(props) {
     if( props.gameListVis === true){
         
         return(
-            <div>
+            <div className="listview">
+                <ListHeader gameList = { props.gameList }
+                            name = { props.name } />
                 <AddList createListFn = { props.createListFn } 
                         gameList = { props.gameList } 
                         handleSavedListClickFn = { props.handleSavedListClickFn }
@@ -18,17 +20,16 @@ export default function ListView(props) {
                         name = { props.name }
                         searchQueryArr = { props.searchQueryArr }
                         />
-                <ListHeader gameList = { props.gameList }
-                            name = { props.name } />
-                <GameList gameList = { props.gameList }
+                <div className="gamelistflex">
+                    <GameList gameList = { props.gameList }
                           savedList = { props.savedList } />
+                </div>
             </div>
         )
     }
-
-    return (
+    return(
         <div>
-        </div>
+            </div>
     )
 }
  
