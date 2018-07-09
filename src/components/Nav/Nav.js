@@ -8,7 +8,7 @@ export default function Nav() {
         <div>
            <p>Logo</p>
             <nav>
-                <a href={"#"}>My Lists</a>
+                <a href={''}>My Lists</a>
                 <button> Login </button>
             </nav>
         </div>

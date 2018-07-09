@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import './GameList.css'
-import Checkbox from './Checkbox/Checkbox.js';
 
 export default class GameList extends Component  {
     constructor() {
@@ -11,20 +10,38 @@ export default class GameList extends Component  {
             checked: false
         }
     }
+
+    convertToHuman(val) {
+        if(val === false || val === undefined ){
+        return "Release date not Available"
+        }else {
+        let newDate = new Date(val)
+        return newDate.toDateString()
+        }
+
+    }
     
-    render() {
+    render() {        
         let mappedGames = this.props.gameList.map( (e, i) => {
-            return(
-                <div key={i}>
-                    <Checkbox name = { e.name }
-                              summary = { e.summary }
-                              firstReleaseDate = { e.first_release_date }/>
-                </div>
-            )
+            let obj = {
+                name:e.name,
+                summary:e.summary,
+                FirstReleased: e.first_release_date
+            }
+            if (obj.summary !== undefined){
+                return(
+                    <div key={i}>
+                        <h2>{ e.name }</h2>
+                        <p>{ e.summary }</p>
+                        <p>First released on: { this.convertToHuman(e.first_release_date) }</p>
+                    </div>
+                )
+            }
         })
-        return(
+
+        return (
             <div>
-                { mappedGames }
+                {mappedGames}
             </div>
         )
     }

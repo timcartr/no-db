@@ -2,7 +2,7 @@ import React from 'react'
 
 import './ListHeader.css'
 
-export default function GameList(props) {
+export default function ListHeader(props) {
     
     let mappedYears = []
     props.gameList.map( (e, i) => {

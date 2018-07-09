@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import axios from "axios";
 
 import './AddList.css'
-import { create } from 'domain';
 
-export default class Nav extends Component {
+export default class AddList extends Component {
     constructor() {
         super() 
 
@@ -15,14 +13,26 @@ export default class Nav extends Component {
 
     handleClick() {
         const { gameList } = this.props
-        this.props.createListFn(gameList)     
+        this.props.createListFn(gameList, this.props.searchQueryArr)
+        this.props.handleSavedListClickFn()
+        this.props.hideGameListFn()     
+    }
+
+    handleClear() {
+        this.props.hideGameListFn()
     }
 
     render() {
-        console.log(this.state.savedList)
+        if( this.props.gameList.length !== 0){
+            return(
+                <div>
+                    <button onClick={ () => { this.handleClick() } }>Save It!</button>
+                    <button onClick={ () => { this.handleClear() } }>Clear</button>
+                </div>
+            )
+        }
         return(
             <div>
-            <button onClick={ () => { this.handleClick() } }>Save</button>
             { this.updateState }
             </div>
         )
