@@ -24,9 +24,7 @@ export default class GameList extends Component  {
     render() {        
         let mappedGames = this.props.gameList.map( (e, i) => {
             let obj = {
-                name:e.name,
                 summary:e.summary,
-                FirstReleased: e.first_release_date
             }
             if (obj.summary !== undefined){
                 return(
